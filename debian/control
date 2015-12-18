@@ -1,0 +1,12 @@
+Source: haproxy
+Maintainer: Christopher Hicks <chicks@uber.com>
+Section: misc
+Priority: optional
+Standards-Version: 1.6.2
+Build-Depends: debhelper (>= 9), libssl-dev
+
+Package: haproxy
+Architecture: x86_64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: haproxy spurns `generic`
+ haproxy optimized for x86_64

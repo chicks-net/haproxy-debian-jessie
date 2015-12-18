@@ -1,0 +1,5 @@
+haproxy (1.6.2-1) UNRELEASED; urgency=medium
+
+  * Initial release.
+
+ -- Christopher Hicks <chicks@uber.com>  Fri, 18 Dec 2015 19:15:21 +0000
