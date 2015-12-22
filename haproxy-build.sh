@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # define variables
+ITERATION=2
 DIRGIT=/home/chicks/Documents/git/haproxy-debian-jessie
 DIRBUILD=/home/chicks/Documents/build-haproxy
 DIRBUILT=/home/chicks/Documents/built-haproxy
@@ -24,6 +25,11 @@ make DESTDIR=$DIRBUILT PREFIX=/usr install
 
 # package
 cd $DIRGIT
-ITERATION=1
-rm haproxy_${HAPROXY_VER}-${ITERATION}_amd64.deb
-fpm -s dir -t deb -n haproxy -v $HAPROXY_VER --iteration $ITERATION $DIRBUILT
+OUTDEB=haproxy_${HAPROXY_VER}-${ITERATION}_amd64.deb
+rm $OUTDEB
+echo ""
+fpm -s dir -t deb -n haproxy -v $HAPROXY_VER --iteration $ITERATION -C $DIRBUILT usr
+echo ""
+dpkg -c $OUTDEB
+echo ""
+git add $OUTDEB
